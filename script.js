@@ -1,62 +1,37 @@
-// Khởi tạo ECharts
 const gaugeChart = echarts.init(document.getElementById('gaugeChart'));
 gaugeChart.setOption({
   series: [{
     type: 'gauge',
-    startAngle: 180,
-    endAngle: 0,
-    min: 0,
-    max: 14,
-    radius: '95%', // Mở rộng vòng cung ra sát viền để thoáng hơn
-    center: ['50%', '75%'], // Đẩy trọng tâm xuống dưới
+    startAngle: 180, endAngle: 0,
+    min: 0, max: 14,
+    radius: '90%', 
+    center: ['50%', '65%'], // Nâng toàn bộ khối cung tròn lên trên
     axisLine: {
       lineStyle: {
         width: 15,
-        color: [
-          [0.3, '#ff4757'], // Đỏ (Axit)
-          [0.5, '#2ed573'], // Xanh lá (Trung tính)
-          [0.7, '#1e90ff'], // Xanh dương (Kiềm nhẹ)
-          [1, '#9c88ff']    // Tím (Kiềm mạnh)
-        ]
+        color: [[0.3, '#ff4757'], [0.5, '#2ed573'], [0.7, '#1e90ff'], [1, '#9c88ff']]
       }
     },
-    pointer: {
-      icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z', // Đổi kim thành hình kim nhọn chuẩn
-      length: '40%', // Rút ngắn kim lại để không đè số
-      width: 6,
-      offsetCenter: [0, '-40%'], // Nâng kim lên cao
-      itemStyle: {
-        color: 'auto' // Kim đổi màu theo vùng nó chỉ vào
-      }
-    },
-    axisTick: {
-      length: 10,
-      lineStyle: { color: 'auto', width: 2 }
-    },
-    splitLine: {
-      length: 15,
-      lineStyle: { color: 'auto', width: 3 }
+    pointer: { 
+      length: '55%', width: 5, 
+      offsetCenter: [0, '-5%'] // Giữ kim ở nửa trên
     },
     axisLabel: {
-      color: '#7b849b', // Đổi màu số cho dễ nhìn
-      distance: -40, // Đẩy số ra xa kim
+      distance: 20, // QUAN TRỌNG: Số dương đẩy các mốc (0..14) ra HẲN BÊN NGOÀI viền màu
+      color: '#7b849b',
       fontSize: 12
     },
     detail: {
-      fontSize: 45, // Chữ số bự lên
-      offsetCenter: [0, '-5%'],
-      valueAnimation: true,
+      fontSize: 45,
+      offsetCenter: [0, '25%'], // Hạ con số bự hiển thị pH xuống dưới kim
       formatter: '{value}',
-      color: 'inherit'
+      color: 'auto'
     },
-    data: [{ 
-      value: 0, 
-      name: 'pH HIỆN TẠI' // Đổi tên cho hợp lý
-    }],
     title: {
-      offsetCenter: [0, '20%'], // Hạ chữ xuống dưới cùng
-      fontSize: 14,
+      offsetCenter: [0, '55%'], // Hạ chữ "pH HIỆN TẠI" xuống dưới đáy
+      fontSize: 13,
       color: '#7b849b'
-    }
+    },
+    data: [{ value: 0, name: 'pH HIỆN TẠI' }]
   }]
 });
