@@ -1,0 +1,19 @@
+:root { --bg-main: #13141b; --bg-card: #1c1f2b; --text-main: #ffffff; --text-dim: #7b849b; --border-line: rgba(255,255,255,0.05); --card-shadow: 0 10px 30px rgba(0,0,0,0.5); --accent-green: #00f2a6; --accent-blue: #00a8ff; --danger: #ff4757; }
+[data-theme="light"] { --bg-main: #f0f2f5; --bg-card: #ffffff; --text-main: #1a1a2e; --text-dim: #5f6368; --border-line: rgba(0,0,0,0.1); --card-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+body { margin: 0; padding: 20px; background-color: var(--bg-main); color: var(--text-main); font-family: 'Segoe UI', system-ui, sans-serif; transition: 0.3s; }
+.header { display: flex; justify-content: space-between; align-items: center; margin: 0 auto 20px auto; max-width: 1000px; font-size: 0.9rem; font-weight: 600; color: var(--text-dim); }
+.logo { color: var(--text-main); font-weight: bold; }
+.logo span { color: var(--text-dim); font-weight: normal; }
+.header-right { display: flex; align-items: center; gap: 15px; }
+.status { color: var(--text-dim); display: flex; align-items: center; gap: 8px; }
+.status::before { content: ''; width: 8px; height: 8px; background: currentColor; border-radius: 50%; }
+#themeToggle { background: transparent; border: 1px solid var(--border-line); color: var(--text-main); border-radius: 50%; width: 34px; height: 34px; cursor: pointer; transition: 0.3s; }
+.dashboard { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: auto; }
+@media(min-width: 768px) { .dashboard { grid-template-columns: 1fr 1fr; } }
+.card { background: var(--bg-card); border-radius: 16px; padding: 20px; border: 1px solid var(--border-line); box-shadow: var(--card-shadow); display: flex; flex-direction: column; }
+.card-title { font-size: 0.85rem; color: var(--text-dim); display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+.voltage-panel { text-align: center; justify-content: center; }
+.volt-value { font-size: 4rem; font-weight: 300; color: var(--accent-green); margin: 20px 0; }
+.volt-value span { font-size: 2rem; color: var(--text-dim); }
+.volt-status { background: rgba(0, 242, 166, 0.1); color: var(--accent-green); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(0, 242, 166, 0.3); }
+.dot { width:10px;height:10px;background:var(--accent-green);border-radius:50%; }
